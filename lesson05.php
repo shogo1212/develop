@@ -18,7 +18,4 @@ for ($i = 4; $i >= 1; $i--) {
     }
     echo "\n";
 }
-
-
 ?>
-rst commit)
