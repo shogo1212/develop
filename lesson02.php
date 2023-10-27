@@ -1,29 +1,62 @@
-<?php
-$yen = 10000;   // 購入金額
-$product = 150; // 商品金額
-
-echo "10000円札で購入した場合、\n";
-
-function calc($yen, $product) {
-    // この関数内に処理を記述
+﻿<?php
+    function numberLoop() {
+        $output = "";
     
-    $change = $yen - $product;
-    $money = [10000,5000,1000,500,100,50,10,5,1];
-    foreach ($money as $j) {
-        $maisu = floor($change / $j);
-        $change -= ($j * $maisu);
-        $t = ($j > 500) ? "札" : "玉";
-        echo $j . "円" . $t . "x" . $maisu . "枚、";
-    }
-    echo "\n";
+        // 上半分のパターンを出力
+        for ($i = 1; $i <= 5; $i++) {
+            // アスタリスクを出力
+            for ($j = 5; $j > $i; $j--) {
+                $output .= "*";
+            }
     
-    echo "100円玉で購入した場合、\n";
-    $yen = 100;
-    $product = 150;
-    if ($yen < $product) {
-        echo ($product - $yen) . '円足りません。'; 
+            // 増加する数字を出力
+            for ($k = 1; $k <= $i; $k++) {
+                $output .= ($k % 2 == 0) ? "<strong>$k</strong>" : $k;
+            }
+    
+            // 減少する数字を出力
+            for ($l = $i - 1; $l >= 1; $l--) {
+                $output .= ($l % 2 == 0) ? "<strong>$l</strong>" : $l;
+            }
+    
+            $output .= "<br>"; // HTMLの改行
+        }
+    
+        for ($i = 4; $i >= 1; $i--) {
+            // アスタリスクを出力
+            for ($j = 5; $j > $i; $j--) {
+                $output .= "*";
+            }
+    
+            // 増加する数字を出力
+            for ($k = 1; $k <= $i; $k++) {
+                $output .= ($k % 2 == 0) ? "<strong>$k</strong>" : $k;
+            }
+    
+            // 減少する数字を出力
+            for ($l = $i - 1; $l >= 1; $l--) {
+                $output .= ($l % 2 == 0) ? "<strong>$l</strong>" : $l;
+            }
+    
+            $output .= "<br>"; // HTMLの改行
+        }
+    
+        return $output;
     }
-    echo "\n";
-}
-calc($yen, $product)
+
 ?>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ループ表示</title>
+</head>
+<body>
+    <!-- ここに表示例の通り表示 -->
+  <?php
+     echo numberLoop(); 
+    ?>
+</body>
+</html>

@@ -1,18 +1,18 @@
-<?php
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body>
 
-function fizzbuzz() {
-    // この関数内に処理を記述
-    for ($i = 1; $i <= 100; $i++){
-        if ($i % 3 == 0 && $i % 5 == 0) {
-            echo $i. " FizzBuzz\n";
-        } elseif ($i % 3 == 0) {
-            echo $i. " Fizz\n";
-        } elseif ($i % 5 == 0) {
-            echo $i. " Buzz\n";
-        } else {
-            echo $i. "\n";
-        }
-    }
-}
-fizzbuzz()
+<?php
+$hello = "Hello";
+$world = "World";
+
+echo $hello . "<br>" . $world;
 ?>
+
+</body>
+</html>
